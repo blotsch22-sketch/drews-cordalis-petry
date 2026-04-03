@@ -93,14 +93,6 @@ export default function HeroSection() {
 
             {/* Text mittig über dem Video */}
             <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-5">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3 py-1 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F2C14E] animate-pulse" />
-                <span className="text-[10px] font-medium text-white/80 tracking-wide uppercase font-['Montserrat']">
-                  Live-Entertainment
-                </span>
-              </div>
-
               {/* Headline */}
               <h1 className="text-3xl font-extrabold leading-[1.1] mb-2 tracking-tight text-white text-center">
                 {HERO.headline}

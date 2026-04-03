@@ -2,15 +2,44 @@
  * BackgroundPattern – Dekoratives Hintergrund-Layer
  * Chaotische Wellenlinien (SVG) + Foto-Kreise (HTML/CSS für volle Kontrolle)
  */
+import { useState, useEffect } from "react";
 
 const photoCircles = [
-  { top: "8%", left: "5%", size: 240, image: "/images/trio-1.webp", objectPosition: "center 30%" },
-  { top: "6%", left: "58%", size: 320, image: "/images/trio-2-new.jpg", objectPosition: "center 20%" },
-  { top: "52%", left: "12%", size: 230, image: "/images/trio-3.jpg", objectPosition: "center 25%" },
-  { top: "50%", left: "55%", size: 280, image: "/images/trio-4-new.jpg", objectPosition: "center 30%" },
+  {
+    top: "8%",
+    left: "5%", mobileLeft: "10%",
+    size: 240, mobileSize: 140,
+    image: "/images/trio-1.webp", objectPosition: "center 30%",
+  },
+  {
+    top: "6%",
+    left: "58%", mobileLeft: "55%",
+    size: 320, mobileSize: 140,
+    image: "/images/trio-2-new.jpg", objectPosition: "center 20%",
+  },
+  {
+    top: "52%",
+    left: "12%", mobileLeft: "8%",
+    size: 230, mobileSize: 130,
+    image: "/images/trio-3.jpg", objectPosition: "center 25%",
+  },
+  {
+    top: "50%",
+    left: "55%", mobileLeft: "50%",
+    size: 280, mobileSize: 130,
+    image: "/images/trio-4-new.jpg", objectPosition: "center 30%",
+  },
 ];
 
 export default function BackgroundPattern() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
       {/* SVG Wellenlinien */}
@@ -43,16 +72,19 @@ export default function BackgroundPattern() {
         <circle cx="1000" cy="500" r="2.5" fill="rgba(242, 193, 78, 0.18)" />
       </svg>
 
-      {/* Foto-Kreise als HTML – volle Kontrolle über object-fit/position */}
-      {photoCircles.map((c, i) => (
+      {/* Foto-Kreise – responsive: kleiner und zentraler auf Mobile */}
+      {photoCircles.map((c, i) => {
+        const size = isMobile ? c.mobileSize : c.size;
+        const left = isMobile ? c.mobileLeft : c.left;
+        return (
         <div
           key={i}
           className="absolute rounded-full overflow-hidden"
           style={{
             top: c.top,
-            left: c.left,
-            width: c.size,
-            height: c.size,
+            left,
+            width: size,
+            height: size,
             boxShadow: "0 0 0 3px rgba(220, 165, 140, 0.35), 0 0 0 7px rgba(233, 122, 106, 0.1)",
           }}
         >
@@ -68,7 +100,8 @@ export default function BackgroundPattern() {
             loading="lazy"
           />
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
