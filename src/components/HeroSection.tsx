@@ -56,10 +56,13 @@ export default function HeroSection() {
     <>
       {/* ===== MOBILE HERO ===== */}
       <section id="hero" className="md:hidden">
+        {/* Abstand oben – Website-Hintergrund sichtbar */}
+        <div className="h-20 bg-[#FFF8F1]" />
+
         {/* Video-Bereich mit Text zentriert darüber */}
         <div className="relative">
           {/* Oberer Verlauf: Website-BG → Video */}
-          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#FFF8F1] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[#FFF8F1] to-transparent z-10 pointer-events-none" />
 
           {/* Video */}
           <div className="relative w-full aspect-video bg-[#2F2A26] overflow-hidden">
@@ -113,7 +116,7 @@ export default function HeroSection() {
           </div>
 
           {/* Unterer Verlauf: Video → Website-BG */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#FFF8F1] to-transparent z-10 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[#FFF8F1] to-transparent z-10 pointer-events-none" />
         </div>
 
         {/* Buttons unterhalb des Videos auf Website-Hintergrund */}
