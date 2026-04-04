@@ -15,11 +15,11 @@ export default function HeroSection() {
   useEffect(() => {
     if (!HERO.backgroundVideoId || !canLoadYouTube) return;
 
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
+    const initPlayer = () => {
+      // Nur initialisieren wenn das Element existiert und noch kein iframe drin ist
+      const el = document.getElementById("hero-video");
+      if (!el || el.tagName === "IFRAME") return;
 
-    (window as any).onYouTubeIframeAPIReady = () => {
       new (window as any).YT.Player("hero-video", {
         videoId: HERO.backgroundVideoId,
         playerVars: {
@@ -53,6 +53,19 @@ export default function HeroSection() {
         },
       });
     };
+
+    // YouTube API schon geladen? Direkt initialisieren. Sonst Script laden.
+    if ((window as any).YT && (window as any).YT.Player) {
+      initPlayer();
+    } else {
+      const existing = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+      if (!existing) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.head.appendChild(tag);
+      }
+      (window as any).onYouTubeIframeAPIReady = initPlayer;
+    }
 
     return () => {
       delete (window as any).onYouTubeIframeAPIReady;

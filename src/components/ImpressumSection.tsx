@@ -8,6 +8,16 @@ export default function ImpressumSection() {
     <section id="impressum" className="py-20 md:py-28 bg-[#FFF8F1]">
       <div className="section-container">
         <div className="max-w-3xl mx-auto">
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.location.hash = ""; window.scrollTo(0, 0); }}
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#E97A6A] hover:text-[#d4645a] mb-8 group transition-colors"
+          >
+            <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Zurück zur Website
+          </a>
           <span className="section-label">Rechtliches</span>
           <h2 className="text-3xl md:text-4xl font-extrabold leading-tight mb-10 text-[#2F2A26]">
             Impressum
