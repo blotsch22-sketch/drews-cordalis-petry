@@ -152,13 +152,6 @@ export default function HeroSection() {
 
       <div className="relative section-container text-center py-32 pt-40">
         <div className="max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-1.5 mb-8">
-            <span className="w-2 h-2 rounded-full bg-[#F2C14E] animate-pulse" />
-            <span className="text-xs font-medium text-white/80 tracking-wide uppercase font-['Montserrat']">
-              Live-Entertainment
-            </span>
-          </div>
-
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] mb-6 tracking-tight text-white">
             {HERO.headline}
             <br />
