@@ -257,11 +257,9 @@ export const BOOKING = {
 export const FOOTER = {
   copyright: `© ${new Date().getFullYear()} DREWS CORDALIS PETRY. Alle Rechte vorbehalten.`,
   socials: [
-    { platform: "Instagram", url: "#", icon: "instagram" },
-    { platform: "Facebook", url: "#", icon: "facebook" },
-    { platform: "YouTube", url: "#", icon: "youtube" },
-    { platform: "TikTok", url: "#", icon: "tiktok" },
-    { platform: "Spotify", url: "#", icon: "spotify" },
+    { platform: "Spotify", url: "https://open.spotify.com/intl-de/artist/5kF4PCcWUUpnVsPS9mjkoK?si=84ARAYCRT1a2XafJWRGu3g", icon: "spotify" },
+    { platform: "Instagram", url: "https://www.instagram.com/fiestarecordsmusic", icon: "instagram" },
+    { platform: "YouTube", url: "https://youtube.com/@fiestarecordsmusic", icon: "youtube" },
   ],
   legalLinks: [
     { label: "Impressum", href: "#impressum" },
