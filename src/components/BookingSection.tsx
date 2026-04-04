@@ -1,5 +1,10 @@
-import { useState, type FormEvent } from "react";
-import { BOOKING } from "../data/content";
+import { useState, useEffect, type FormEvent } from "react";
+import { BOOKING, EVENT_TYPES, type EventTypeValue } from "../data/content";
+
+interface BookingProps {
+  selectedEventType?: EventTypeValue | "";
+  onEventTypeChange?: (value: EventTypeValue | "") => void;
+}
 
 interface FormData {
   name: string;
@@ -21,10 +26,17 @@ const initialForm: FormData = {
   privacy: false,
 };
 
-export default function BookingSection() {
+export default function BookingSection({ selectedEventType = "", onEventTypeChange }: BookingProps) {
   const [form, setForm] = useState<FormData>(initialForm);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitted, setSubmitted] = useState(false);
+
+  // Sync external selectedEventType into form
+  useEffect(() => {
+    if (selectedEventType) {
+      setForm((prev) => ({ ...prev, eventType: selectedEventType }));
+    }
+  }, [selectedEventType]);
 
   const validate = (): boolean => {
     const newErrors: typeof errors = {};
@@ -130,14 +142,11 @@ export default function BookingSection() {
                   <label htmlFor="eventType" className="block text-xs font-semibold text-[#2F2A26]/45 mb-1.5 uppercase tracking-wider font-['Montserrat']">
                     Art der Veranstaltung
                   </label>
-                  <select id="eventType" value={form.eventType} onChange={(e) => updateField("eventType", e.target.value)} className={`${inputClass("eventType")} appearance-none`}>
+                  <select id="eventType" value={form.eventType} onChange={(e) => { updateField("eventType", e.target.value); onEventTypeChange?.(e.target.value as EventTypeValue | ""); }} className={`${inputClass("eventType")} appearance-none`}>
                     <option value="">Bitte auswählen</option>
-                    <option value="festival">Festival / Open Air</option>
-                    <option value="gala">Gala / Firmenfeier</option>
-                    <option value="stadtfest">Stadtfest / Volksfest</option>
-                    <option value="tv">TV-Sendung</option>
-                    <option value="privat">Private Veranstaltung</option>
-                    <option value="sonstiges">Sonstiges</option>
+                    {EVENT_TYPES.map((et) => (
+                      <option key={et.value} value={et.value}>{et.label}</option>
+                    ))}
                   </select>
                 </div>
 

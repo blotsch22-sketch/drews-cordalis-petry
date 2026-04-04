@@ -208,6 +208,21 @@ export const REFERENCES = {
   },
 };
 
+// Zentrale Event-Liste – Single Source of Truth für Icons und Booking-Auswahl
+export const EVENT_TYPES = [
+  { value: "stadtfest", label: "Stadtfest" },
+  { value: "firmenfeier", label: "Firmenfeier" },
+  { value: "festival", label: "Festival" },
+  { value: "openair", label: "Open Air" },
+  { value: "schlagerabend", label: "Schlagerabend" },
+  { value: "mallorca", label: "Mallorca Party" },
+  { value: "sommerfest", label: "Sommerfest" },
+  { value: "karneval", label: "Karneval" },
+  { value: "aftershow", label: "Aftershow" },
+] as const;
+
+export type EventTypeValue = typeof EVENT_TYPES[number]["value"];
+
 export interface ContactPerson {
   role: string;
   name: string;
