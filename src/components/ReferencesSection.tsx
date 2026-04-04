@@ -3,7 +3,7 @@ import { REFERENCES } from "../data/content";
 import type { ReferenceClip } from "../data/content";
 function ClipCard({ clip }: { clip: ReferenceClip }) {
   const [playing, setPlaying] = useState(false);
-  const thumbnail = `https://img.youtube.com/vi/${clip.youtubeId}/maxresdefault.jpg`;
+  const thumbnail = `/images/yt-thumb-${clip.youtubeId}.jpg`;
 
   return (
     <div className="card group">
