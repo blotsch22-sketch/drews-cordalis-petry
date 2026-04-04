@@ -147,6 +147,7 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
                     {EVENT_TYPES.map((et) => (
                       <option key={et.value} value={et.value}>{et.label}</option>
                     ))}
+                    <option value="sonstiges">Sonstiges</option>
                   </select>
                 </div>
 
