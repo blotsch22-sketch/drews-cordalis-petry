@@ -1,9 +1,6 @@
 import { MUSIC } from "../data/content";
-import { useConsent, EmbedPlaceholder } from "./CookieConsent";
 
 export default function MusicSection() {
-  const { consent, acceptAll } = useConsent();
-
   return (
     <section id="musik" className="py-24 md:py-32 bg-[#F6E7D8]/40">
       <div className="section-container">
@@ -22,9 +19,7 @@ export default function MusicSection() {
         {MUSIC.spotifyAlbumId && (
           <div className="max-w-2xl mx-auto mb-16">
             <div className="card p-5 md:p-6">
-              {!consent.marketing ? (
-                <EmbedPlaceholder service="Spotify" onAccept={acceptAll} />
-              ) : <iframe
+              <iframe
                 src={`https://open.spotify.com/embed/album/${MUSIC.spotifyAlbumId}?utm_source=generator&theme=0`}
                 width="100%"
                 height="352"
@@ -34,7 +29,7 @@ export default function MusicSection() {
                 title="Spotify Album Player"
                 className="rounded-lg"
                 style={{ borderRadius: "12px" }}
-              />}
+              />
             </div>
           </div>
         )}
@@ -63,7 +58,7 @@ export default function MusicSection() {
 
                 {/* Spotify Track Player – pushed nach unten durch flex-grow */}
                 <div className="mt-auto">
-                  {release.spotifyTrackId && consent.marketing && (
+                  {release.spotifyTrackId && (
                     <div className="mb-4">
                       <iframe
                         src={`https://open.spotify.com/embed/track/${release.spotifyTrackId}?utm_source=generator&theme=0`}

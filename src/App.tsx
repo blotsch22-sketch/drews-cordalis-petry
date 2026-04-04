@@ -9,7 +9,6 @@ import EventTypesSection from "./components/EventTypesSection";
 import BookingSection from "./components/BookingSection";
 import ImpressumSection from "./components/ImpressumSection";
 import DatenschutzSection from "./components/DatenschutzSection";
-import { ConsentProvider } from "./components/CookieConsent";
 import Footer from "./components/Footer";
 import type { EventTypeValue } from "./data/content";
 
@@ -50,7 +49,6 @@ export default function App() {
   };
 
   return (
-    <ConsentProvider>
     <div className="min-h-screen bg-[#FFF8F1] relative">
       <BackgroundPattern />
       <Navbar />
@@ -82,6 +80,5 @@ export default function App() {
         <Footer />
       </div>
     </div>
-    </ConsentProvider>
   );
 }

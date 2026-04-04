@@ -57,7 +57,7 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const acceptAll = () => {
-    const c = { necessary: true, marketing: true };
+    const c = { necessary: true, marketing: false };
     setConsent(c);
     setHasDecided(true);
     saveConsent(c);

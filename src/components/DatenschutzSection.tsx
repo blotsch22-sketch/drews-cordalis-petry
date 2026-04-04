@@ -2,10 +2,7 @@
  * Datenschutzerklärung – Vollständig DSGVO-konform
  * Quelle: e-recht24.de, angepasst für FIESTA RECORDS GmbH
  */
-import { useConsent } from "./CookieConsent";
-
 export default function DatenschutzSection() {
-  const { revokeConsent, consent, hasDecided } = useConsent();
 
   const h3Class = "text-lg font-bold text-[#2F2A26] mb-3 font-['Montserrat']";
   const h4Class = "text-base font-bold text-[#2F2A26] mb-2 font-['Montserrat']";
@@ -147,21 +144,6 @@ export default function DatenschutzSection() {
 
               <h4 className={h4Class}>Spotify</h4>
               <p>Auf dieser Website sind Funktionen des Musik-Dienstes Spotify eingebunden. Anbieter ist die Spotify AB, Birger Jarlsgatan 61, 113 56 Stockholm in Schweden. Dadurch kann beim Besuch dieser Website über das Plugin eine direkte Verbindung zwischen Ihrem Browser und dem Spotify-Server hergestellt werden. Spotify erhält dadurch die Information, dass Sie mit Ihrer IP-Adresse diese Website besucht haben. Wir weisen darauf hin, dass bei der Nutzung von Spotify Cookies von Google Analytics eingesetzt werden können. Die Speicherung und Analyse der Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG. Die Einwilligung ist jederzeit widerrufbar. Weitere Informationen: <a href="https://www.spotify.com/de/legal/privacy-policy/" target="_blank" rel="noopener noreferrer" className={linkClass}>https://www.spotify.com/de/legal/privacy-policy/</a></p>
-            </div>
-
-            {/* Cookie-Einstellungen */}
-            <div className="bg-white rounded-xl p-5 border border-[#2F2A26]/8">
-              <h3 className="text-lg font-bold text-[#2F2A26] mb-2 font-['Montserrat']">
-                Cookie-Einstellungen ändern
-              </h3>
-              <p className="text-sm text-[#2F2A26]/55 mb-3">
-                Aktueller Status: Marketing-Cookies sind{" "}
-                <strong>{consent.marketing ? "akzeptiert" : "abgelehnt"}</strong>.
-                {!hasDecided && " (Keine Auswahl getroffen)"}
-              </p>
-              <button onClick={revokeConsent} className="btn-secondary text-xs px-4 py-2">
-                Cookie-Einstellungen zurücksetzen
-              </button>
             </div>
 
             {/* Quelle */}
