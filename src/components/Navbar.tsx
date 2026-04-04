@@ -67,15 +67,19 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); handleClick(item.href); }}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? isHeroArea
-                        ? "text-[#F2C14E] bg-white/10"
-                        : "text-[#E97A6A] bg-[#E97A6A]/8"
-                      : isHeroArea
-                        ? "text-white/80 hover:text-white hover:bg-white/10"
-                        : "text-[#2F2A26]/60 hover:text-[#2F2A26] hover:bg-[#2F2A26]/5"
-                  }`}
+                  className={
+                    item.href === "#booking"
+                      ? `ml-2 text-sm px-5 py-2.5 ${isHeroArea ? "btn-hero-primary" : "btn-primary"}`
+                      : `px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                          isActive
+                            ? isHeroArea
+                              ? "text-[#F2C14E] bg-white/10"
+                              : "text-[#E97A6A] bg-[#E97A6A]/8"
+                            : isHeroArea
+                              ? "text-white/80 hover:text-white hover:bg-white/10"
+                              : "text-[#2F2A26]/60 hover:text-[#2F2A26] hover:bg-[#2F2A26]/5"
+                        }`
+                  }
                 >
                   {item.label}
                 </a>
