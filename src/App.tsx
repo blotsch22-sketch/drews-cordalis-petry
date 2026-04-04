@@ -8,6 +8,8 @@ import ReferencesSection from "./components/ReferencesSection";
 import EventTypesSection from "./components/EventTypesSection";
 import BookingSection from "./components/BookingSection";
 import ImpressumSection from "./components/ImpressumSection";
+import DatenschutzSection from "./components/DatenschutzSection";
+import { ConsentProvider, CookieBanner } from "./components/CookieConsent";
 import Footer from "./components/Footer";
 import type { EventTypeValue } from "./data/content";
 
@@ -23,6 +25,7 @@ export default function App() {
   };
 
   return (
+    <ConsentProvider>
     <div className="min-h-screen bg-[#FFF8F1] relative">
       <BackgroundPattern />
       <Navbar />
@@ -34,10 +37,13 @@ export default function App() {
         <EventTypesSection onEventSelect={handleEventSelect} />
         <BookingSection selectedEventType={selectedEventType} onEventTypeChange={setSelectedEventType} />
         <ImpressumSection />
+        <DatenschutzSection />
       </main>
       <div className="relative z-10">
         <Footer />
       </div>
+      <CookieBanner />
     </div>
+    </ConsentProvider>
   );
 }

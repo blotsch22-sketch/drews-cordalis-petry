@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { HERO } from "../data/content";
+import { useConsent } from "./CookieConsent";
 
 export default function HeroSection() {
   const [videoReady, setVideoReady] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const { consent } = useConsent();
+  const canLoadYouTube = consent.marketing;
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -13,7 +16,7 @@ export default function HeroSection() {
   }, []);
 
   useEffect(() => {
-    if (!HERO.backgroundVideoId) return;
+    if (!HERO.backgroundVideoId || !canLoadYouTube) return;
 
     const tag = document.createElement("script");
     tag.src = "https://www.youtube.com/iframe_api";
@@ -57,9 +60,9 @@ export default function HeroSection() {
     return () => {
       delete (window as any).onYouTubeIframeAPIReady;
     };
-  }, []);
+  }, [canLoadYouTube]);
 
-  const videoBlock = (
+  const videoBlock = !canLoadYouTube ? null : (
     <>
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none bg-[#2F2A26]">
         <div

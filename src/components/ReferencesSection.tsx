@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { REFERENCES } from "../data/content";
 import type { ReferenceClip } from "../data/content";
+import { useConsent, EmbedPlaceholder } from "./CookieConsent";
 
 function ClipCard({ clip }: { clip: ReferenceClip }) {
+  const { consent, acceptAll } = useConsent();
   const [playing, setPlaying] = useState(false);
   const thumbnail = `https://img.youtube.com/vi/${clip.youtubeId}/maxresdefault.jpg`;
 
   return (
     <div className="card group">
       <div className="relative aspect-video overflow-hidden">
-        {playing ? (
+        {!consent.marketing ? (
+          <EmbedPlaceholder service="YouTube" onAccept={acceptAll} />
+        ) : playing ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${clip.youtubeId}?autoplay=1&rel=0`}
             title={`${clip.title} – ${clip.show}`}
