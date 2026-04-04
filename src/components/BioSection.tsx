@@ -20,7 +20,7 @@ export default function BioSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-5">
             {BIO.headline}
           </h2>
-          <p className="text-[#2F2A26]/55 text-base md:text-lg leading-relaxed">
+          <p className="text-[#2F2A26]/70 text-base md:text-lg leading-relaxed">
             {BIO.intro}
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function BioSection() {
               </div>
               {/* Description */}
               <div className="p-5 pt-3">
-                <p className="text-[#2F2A26]/50 text-sm leading-relaxed">
+                <p className="text-[#2F2A26]/70 text-sm leading-relaxed">
                   {member.description}
                 </p>
               </div>
@@ -65,7 +65,7 @@ export default function BioSection() {
         {BIO.extendedBio && (
           <div className="max-w-2xl mx-auto text-center">
             <div className="w-12 h-px bg-[#E97A6A]/30 mx-auto mb-8" />
-            <p className="text-[#2F2A26]/45 text-base md:text-lg leading-relaxed italic">
+            <p className="text-[#2F2A26]/65 text-base md:text-lg leading-relaxed italic">
               {BIO.extendedBio}
             </p>
           </div>

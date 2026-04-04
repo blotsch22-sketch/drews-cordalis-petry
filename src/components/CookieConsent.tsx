@@ -96,7 +96,7 @@ export function CookieBanner() {
             <h3 className="font-['Montserrat'] font-bold text-[#2F2A26] text-sm mb-1">
               Cookie-Einstellungen
             </h3>
-            <p className="text-xs text-[#2F2A26]/55 leading-relaxed">
+            <p className="text-xs text-[#2F2A26]/70 leading-relaxed">
               Diese Website nutzt technisch notwendige Cookies. Für eingebettete Inhalte von YouTube und Spotify
               benötigen wir Ihre Zustimmung, da diese Dienste Cookies setzen und Daten verarbeiten können.{" "}
               <a href="#/datenschutz" className="text-[#E97A6A] hover:underline">Mehr erfahren</a>
@@ -137,7 +137,7 @@ export function EmbedPlaceholder({ service, onAccept }: { service: string; onAcc
       <p className="text-sm font-semibold text-[#2F2A26] mb-1">
         {service}-Inhalt blockiert
       </p>
-      <p className="text-xs text-[#2F2A26]/50 mb-4 max-w-xs">
+      <p className="text-xs text-[#2F2A26]/70 mb-4 max-w-xs">
         Beim Laden werden Daten an {service} übermittelt und Cookies gesetzt.{" "}
         <a href="#/datenschutz" className="text-[#E97A6A] hover:underline">Datenschutzinfo</a>
       </p>

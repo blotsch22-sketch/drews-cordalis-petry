@@ -141,7 +141,7 @@ export default function DatenschutzSection() {
             </div>
 
             {/* Quelle */}
-            <p className="text-xs text-[#2F2A26]/30">
+            <p className="text-xs text-[#2F2A26]/60">
               Quelle: <a href="https://www.e-recht24.de" target="_blank" rel="noopener noreferrer" className="hover:underline">https://www.e-recht24.de</a>
             </p>
 

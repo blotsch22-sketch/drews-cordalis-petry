@@ -71,7 +71,7 @@ export default function ReferencesSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
             {REFERENCES.headline}
           </h2>
-          <p className="text-[#2F2A26]/55 text-base md:text-lg leading-relaxed">
+          <p className="text-[#2F2A26]/70 text-base md:text-lg leading-relaxed">
             {REFERENCES.subline}
           </p>
         </div>

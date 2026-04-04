@@ -65,7 +65,7 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
   const inputClass = (field: keyof FormData) =>
     `w-full bg-white border ${
       errors[field] ? "border-red-400" : "border-[#2F2A26]/10"
-    } rounded-lg px-4 py-3 text-[#2F2A26] text-sm placeholder-[#2F2A26]/30 focus:outline-none focus:border-[#E97A6A]/50 focus:ring-2 focus:ring-[#E97A6A]/10 transition-all`;
+    } rounded-lg px-4 py-3 text-[#2F2A26] text-sm placeholder-[#2F2A26]/50 focus:outline-none focus:border-[#E97A6A]/50 focus:ring-2 focus:ring-[#E97A6A]/10 transition-all`;
 
   return (
     <section id="booking" className="py-24 md:py-32 bg-[#FFF8F1] relative">
@@ -79,7 +79,7 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
             {BOOKING.headline}
           </h2>
-          <p className="text-[#2F2A26]/55 text-base md:text-lg leading-relaxed">
+          <p className="text-[#2F2A26]/70 text-base md:text-lg leading-relaxed">
             {BOOKING.subline}
           </p>
         </div>
@@ -95,7 +95,7 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-[#2F2A26] mb-3">Anfrage gesendet</h3>
-                <p className="text-[#2F2A26]/55 mb-6">
+                <p className="text-[#2F2A26]/70 mb-6">
                   Vielen Dank für Ihre Anfrage. Wir melden uns innerhalb von 48 Stunden bei Ihnen.
                 </p>
                 <button onClick={() => setSubmitted(false)} className="btn-secondary text-sm">
@@ -106,14 +106,14 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
               <form onSubmit={handleSubmit} className="card p-6 md:p-8 space-y-5" noValidate>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-xs font-semibold text-[#2F2A26]/45 mb-1.5 uppercase tracking-wider font-['Montserrat']">
+                    <label htmlFor="name" className="block text-xs font-semibold text-[#2F2A26]/65 mb-1.5 uppercase tracking-wider font-['Montserrat']">
                       Name *
                     </label>
                     <input id="name" type="text" value={form.name} onChange={(e) => updateField("name", e.target.value)} placeholder="Ihr Name" className={inputClass("name")} />
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-xs font-semibold text-[#2F2A26]/45 mb-1.5 uppercase tracking-wider font-['Montserrat']">
+                    <label htmlFor="email" className="block text-xs font-semibold text-[#2F2A26]/65 mb-1.5 uppercase tracking-wider font-['Montserrat']">
                       E-Mail *
                     </label>
                     <input id="email" type="email" value={form.email} onChange={(e) => updateField("email", e.target.value)} placeholder="ihre@email.de" className={inputClass("email")} />
@@ -122,14 +122,14 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
                 </div>
 
                 <div>
-                  <label htmlFor="date" className="block text-xs font-semibold text-[#2F2A26]/45 mb-1.5 uppercase tracking-wider font-['Montserrat']">
+                  <label htmlFor="date" className="block text-xs font-semibold text-[#2F2A26]/65 mb-1.5 uppercase tracking-wider font-['Montserrat']">
                     Wunschtermin
                   </label>
                   <input id="date" type="date" value={form.date} onChange={(e) => updateField("date", e.target.value)} className={inputClass("date")} />
                 </div>
 
                 <div>
-                  <label htmlFor="eventType" className="block text-xs font-semibold text-[#2F2A26]/45 mb-1.5 uppercase tracking-wider font-['Montserrat']">
+                  <label htmlFor="eventType" className="block text-xs font-semibold text-[#2F2A26]/65 mb-1.5 uppercase tracking-wider font-['Montserrat']">
                     Art der Veranstaltung
                   </label>
                   <select id="eventType" value={form.eventType} onChange={(e) => { updateField("eventType", e.target.value); onEventTypeChange?.(e.target.value as EventTypeValue | ""); }} className={`${inputClass("eventType")} appearance-none`}>
@@ -142,7 +142,7 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-xs font-semibold text-[#2F2A26]/45 mb-1.5 uppercase tracking-wider font-['Montserrat']">
+                  <label htmlFor="message" className="block text-xs font-semibold text-[#2F2A26]/65 mb-1.5 uppercase tracking-wider font-['Montserrat']">
                     Nachricht *
                   </label>
                   <textarea id="message" rows={4} value={form.message} onChange={(e) => updateField("message", e.target.value)} placeholder="Erzählen Sie uns von Ihrem Event..." className={`${inputClass("message")} resize-none`} />
@@ -151,7 +151,7 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
 
                 <label className="flex items-start gap-3 cursor-pointer group">
                   <input type="checkbox" checked={form.privacy} onChange={(e) => updateField("privacy", e.target.checked)} className="mt-0.5 w-4 h-4 rounded border-[#2F2A26]/15 bg-white text-[#E97A6A] focus:ring-[#E97A6A]/30 focus:ring-offset-0 cursor-pointer accent-[#E97A6A]" />
-                  <span className="text-xs text-[#2F2A26]/40 leading-relaxed group-hover:text-[#2F2A26]/60 transition-colors">
+                  <span className="text-xs text-[#2F2A26]/65 leading-relaxed group-hover:text-[#2F2A26]/60 transition-colors">
                     Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu. *
                   </span>
                 </label>
@@ -173,11 +173,11 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
               <div key={i} className="card p-6">
                 <span className="section-label text-[0.65rem] mb-3">{contact.role}</span>
                 <h3 className="text-lg font-bold text-[#2F2A26] mb-0.5">{contact.name}</h3>
-                <p className="text-[#2F2A26]/35 text-sm mb-4">{contact.company}</p>
+                <p className="text-[#2F2A26]/60 text-sm mb-4">{contact.company}</p>
                 <div className="space-y-2.5">
                   <a
                     href={`mailto:${contact.email}`}
-                    className="flex items-center gap-2.5 text-sm text-[#2F2A26]/55 hover:text-[#E97A6A] transition-colors group"
+                    className="flex items-center gap-2.5 text-sm text-[#2F2A26]/70 hover:text-[#E97A6A] transition-colors group"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#F6E7D8]/70 group-hover:bg-[#E97A6A]/10 flex items-center justify-center transition-colors">
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -188,7 +188,7 @@ export default function BookingSection({ selectedEventType = "", onEventTypeChan
                   </a>
                   <a
                     href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                    className="flex items-center gap-2.5 text-sm text-[#2F2A26]/55 hover:text-[#E97A6A] transition-colors group"
+                    className="flex items-center gap-2.5 text-sm text-[#2F2A26]/70 hover:text-[#E97A6A] transition-colors group"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#F6E7D8]/70 group-hover:bg-[#E97A6A]/10 flex items-center justify-center transition-colors">
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

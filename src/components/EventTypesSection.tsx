@@ -178,7 +178,7 @@ export default function EventTypesSection({ onEventSelect }: Props) {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-3 text-[#2F2A26]">
             Passend für Events, bei denen Stimmung zählt
           </h2>
-          <p className="text-[#2F2A26]/50 text-base md:text-lg">
+          <p className="text-[#2F2A26]/70 text-base md:text-lg">
             Von Stadtfest bis Aftershow. Flexibel einsetzbar, publikumsnah und live erprobt.
           </p>
         </div>

@@ -107,7 +107,7 @@ export default function MusicSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
             {MUSIC.headline}
           </h2>
-          <p className="text-[#2F2A26]/55 text-base md:text-lg leading-relaxed">
+          <p className="text-[#2F2A26]/70 text-base md:text-lg leading-relaxed">
             {MUSIC.subline}
           </p>
         </div>
@@ -149,14 +149,14 @@ export default function MusicSection() {
                     {release.year}
                   </span>
                   <span className="w-1 h-1 rounded-full bg-[#2F2A26]/15" />
-                  <span className="text-xs text-[#2F2A26]/35">Album: Das Beste</span>
+                  <span className="text-xs text-[#2F2A26]/60">Album: Das Beste</span>
                 </div>
 
                 {/* Title */}
                 <h3 className="text-lg font-bold text-[#2F2A26] mb-2">{release.title}</h3>
 
                 {/* Description – feste Mindesthöhe für Gleichlauf */}
-                <p className="text-[#2F2A26]/45 text-sm leading-relaxed mb-4 min-h-[3.5rem]">
+                <p className="text-[#2F2A26]/65 text-sm leading-relaxed mb-4 min-h-[3.5rem]">
                   {release.description}
                 </p>
 
@@ -194,7 +194,7 @@ export default function MusicSection() {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs font-medium text-[#2F2A26]/45 hover:text-[#E97A6A] bg-[#F6E7D8]/60 hover:bg-[#E97A6A]/10 px-3 py-1.5 rounded-full transition-all"
+                        className="text-xs font-medium text-[#2F2A26]/65 hover:text-[#E97A6A] bg-[#F6E7D8]/60 hover:bg-[#E97A6A]/10 px-3 py-1.5 rounded-full transition-all"
                       >
                         {link.platform}
                       </a>

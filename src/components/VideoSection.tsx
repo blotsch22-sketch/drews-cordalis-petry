@@ -59,7 +59,7 @@ function VideoCard({ video }: { video: (typeof VIDEOS.items)[0] }) {
       </div>
       <div className="p-5">
         <h3 className="text-base font-bold text-[#2F2A26] mb-1">{video.title}</h3>
-        <p className="text-[#2F2A26]/40 text-sm leading-relaxed">{video.description}</p>
+        <p className="text-[#2F2A26]/65 text-sm leading-relaxed">{video.description}</p>
       </div>
     </div>
   );
@@ -74,7 +74,7 @@ export default function VideoSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
             {VIDEOS.headline}
           </h2>
-          <p className="text-[#2F2A26]/55 text-base md:text-lg leading-relaxed">
+          <p className="text-[#2F2A26]/70 text-base md:text-lg leading-relaxed">
             {VIDEOS.subline}
           </p>
         </div>
