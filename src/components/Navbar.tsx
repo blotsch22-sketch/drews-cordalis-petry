@@ -81,15 +81,6 @@ export default function Navbar() {
                 </a>
               );
             })}
-            <a
-              href="#booking"
-              onClick={(e) => { e.preventDefault(); handleClick("#booking"); }}
-              className={`ml-3 text-sm px-5 py-2.5 ${
-                isHeroArea ? "btn-hero-primary" : "btn-primary"
-              }`}
-            >
-              Booking
-            </a>
           </div>
 
           {/* Mobile Hamburger */}
